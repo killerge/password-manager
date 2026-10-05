@@ -1,34 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {
-      colors: {
-        cream: "#F7F2EA",
-        creamcard: "#FFFDF9",
-        ink: "#4A4238",
-        inksoft: "#8A8074",
-        tabAll: "#4E6373",
-        tabShop: "#E28B90",
-        tabGame: "#7FA98E",
-        tabCustom: "#E7B96B",
-        chipAll: "#DCE6EA",
-        chipShop: "#F7DADC",
-        chipGame: "#DCEAE0",
-        chipCustom: "#F6E4C2",
-      },
-      borderRadius: {
-        xl2: "1.25rem",
-        xl3: "1.75rem",
-      },
-      fontFamily: {
-        sans: ["'Noto Sans TC'", "'Hiragino Sans'", "system-ui", "sans-serif"],
-      },
-      boxShadow: {
-        soft: "0 2px 10px rgba(74,66,56,0.06)",
-        card: "0 4px 16px rgba(74,66,56,0.08)",
-      },
-    },
-  },
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
+  theme: { extend: {
+    colors: { bgMain: '#FBF8F3', borderLight: '#EFECE6', textDark: '#383531', textMuted: '#8C857B', brandPrimary: '#4D6273',
+      catFinance: { DEFAULT: '#5B82A6', bg: '#EEF4F8' }, catShop: { DEFAULT: '#D9727B', bg: '#FDF2F3' },
+      catGame: { DEFAULT: '#6E9C85', bg: '#F0F6F3' }, catCustom: { DEFAULT: '#D49D42', bg: '#FCF8ED' } },
+    borderRadius: { '2xl': '18px', '3xl': '24px' },
+    boxShadow: { card: '0 2px 10px rgba(100,90,80,.06)' } } },
   plugins: [],
 }
