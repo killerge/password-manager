@@ -1,10 +1,10 @@
 import * as XLSX from 'xlsx'
 import { PasswordItem } from '../types/password'
-import { labelOf, fieldsText } from '../utils/category'
+import { catOf, fieldsText } from '../utils/category'
 const MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 const name = () => `密碼小管家_備份_${new Date().toISOString().slice(0, 10)}.xlsx`
 function build(items: PasswordItem[]) {
-  const ws = XLSX.utils.json_to_sheet(items.map(i => ({ 分類: labelOf(i.category), 名稱: i.title, 帳號: i.account, 密碼: i.password, 自定義: fieldsText(i.customFields) })), { header: ['分類', '名稱', '帳號', '密碼', '自定義'] })
+  const ws = XLSX.utils.json_to_sheet(items.map(i => ({ 分類: catOf(i.category).name, 名稱: i.title, 帳號: i.account, 密碼: i.password, 自定義: fieldsText(i.customFields) })), { header: ['分類', '名稱', '帳號', '密碼', '自定義'] })
   ws['!cols'] = [{ wch: 10 }, { wch: 20 }, { wch: 25 }, { wch: 25 }, { wch: 36 }]
   const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, '密碼備份'); return wb
 }

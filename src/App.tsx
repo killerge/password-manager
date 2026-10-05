@@ -33,8 +33,8 @@ export function App() {
       {ask && <Confirm text={ask === 'one' ? '確定要刪除這筆資料嗎？' : '將刪除所有項目且無法復原，確定嗎？'} ok={confirmDelete} cancel={() => setAsk(null)} />}
       <div key={tab + view} className="h-full overflow-y-auto no-scrollbar" style={{ paddingTop: 'env(safe-area-inset-top)' }}>
         {!ready ? null : tab === 'export' ? <ExportPage items={items} toast={toast} /> :
-          tab === 'settings' ? <SettingsPage count={items.length} onRename={() => bump(n => n + 1)} onClear={() => setAsk('all')} /> :
-          view === 'list' ? <HomePage items={items} onSelect={i => { setSel(i); setView('detail') }} /> :
+          tab === 'settings' ? <SettingsPage items={items} onChanged={() => bump(n => n + 1)} onClear={() => setAsk('all')} /> :
+          view === 'list' ? <HomePage onCats={() => bump(n => n + 1)} items={items} onSelect={i => { setSel(i); setView('detail') }} /> :
           view === 'add' ? <AddEditPage onSave={save} onBack={() => setView('list')} /> :
           view === 'edit' && sel ? <AddEditPage initial={sel} onSave={save} onBack={() => setView('detail')} /> :
           sel ? <DetailPage item={sel} onBack={() => setView('list')} onEdit={() => setView('edit')} onDelete={() => setAsk('one')} onCopy={copy} /> : null}
