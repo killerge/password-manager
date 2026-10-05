@@ -1,0 +1,5 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+html,body,#root{height:100%}
+body{margin:0;background:#E9E3D8;color:#383531;font-family:"Noto Sans TC","PingFang TC",-apple-system,"Microsoft JhengHei",sans-serif;-webkit-tap-highlight-color:transparent}
+.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}
+.field{@apply w-full bg-white text-sm rounded-2xl border border-borderLight focus:outline-none focus:border-brandPrimary}
